@@ -1,19 +1,22 @@
-import java.util.Random;
+
+import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
         // Exercise Day 5
         //No.1
-        changeCurrency();
-        //No.2
-        getEvenNumber();
-        // No. 3
 
+        //No.2
+        changeCurrency();
+        // No. 3
+        int[] userEvenNum =  getEvenNumber();
+        System.out.println(Arrays.toString(userEvenNum));
         // No.4
 
 
         // No.5
-
+        int[] userPairNum = getTargetInt();
+        System.out.println(Arrays.toString(userPairNum));
 
         // Self Exercise
         //showPriceMenu();
@@ -43,7 +46,7 @@ public class Main {
         }
 
 
-    public static void getEvenNumber() {
+    public static int[] getEvenNumber() {
         int count = InputUser.getInt("How many numbers do you want to enter? ");
         int[] userArr = new int[count];
         int evenCount = 0;
@@ -56,12 +59,62 @@ public class Main {
             }
         }
 
-        System.out.println("The odd numbers are:");
-        for (int i = 0; i < evenCount; i++) {
-            System.out.print(userArr[i] + " ");
+//        System.out.println("The even numbers are:");
+//        for (int i = 0; i < evenCount; i++) {
+//            System.out.print(userArr[i] + " ");
+//        }
+//        System.out.println();
+        int[] userEvenArr = new int[evenCount];
+        for ( int e = 0 ; e < evenCount; e++){
+            userEvenArr[e] = userArr[e];
         }
-        System.out.println();
+        return userEvenArr;
+
+        //return userArr;
     }
+
+    public static int[] getTargetInt(){
+        int target = InputUser.getInt("What numbers do you want to set as target number ? ");
+        int count = InputUser.getInt("How many numbers do you want to store that generate the target number? ");
+        int[] userArr = new int[count];
+        for (int u = 0 ; u < count ; u ++){
+            userArr[u] = InputUser.getInt("Enter number " + (u + 1) + ": ");
+
+        }
+        int[] userPairIndex = new int[1];
+        for (int i = 0; i < count; i++) {
+            for (int j = i + 1; j < count; j++) {
+                if (userArr[i] + userArr[j] == target) {
+                    userPairIndex[0] = i;
+                    userPairIndex[1] = j;
+
+                }
+            }
+        }
+        return userPairIndex;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //////Exercise
