@@ -7,16 +7,21 @@ public class Main {
         //No.1
 
         //No.2
-        changeCurrency();
+        //changeCurrency();
         // No. 3
         int[] userEvenNum =  getEvenNumber();
         System.out.println(Arrays.toString(userEvenNum));
         // No.4
 
-
         // No.5
+
         int[] userPairNum = getTargetInt();
-        System.out.println(Arrays.toString(userPairNum));
+        boolean isPairFound = (userPairNum[0] != -1 && userPairNum[1] != -1);
+        if (isPairFound) {
+            System.out.println("Pair found at index: " + Arrays.toString(userPairNum));
+        } else {
+            System.out.println("No pair index found");
+        }
 
         // Self Exercise
         //showPriceMenu();
@@ -47,7 +52,7 @@ public class Main {
 
 
     public static int[] getEvenNumber() {
-        int count = InputUser.getInt("How many numbers do you want to enter? ");
+        int count = InputUser.getInt("How many numbers do you want to store as collection of even number? ");
         int[] userArr = new int[count];
         int evenCount = 0;
 
@@ -58,18 +63,16 @@ public class Main {
                 evenCount++;
             }
         }
-
-//        System.out.println("The even numbers are:");
-//        for (int i = 0; i < evenCount; i++) {
-//            System.out.print(userArr[i] + " ");
-//        }
-//        System.out.println();
         int[] userEvenArr = new int[evenCount];
         for ( int e = 0 ; e < evenCount; e++){
             userEvenArr[e] = userArr[e];
         }
         return userEvenArr;
-
+//        System.out.println("The even numbers are:");
+//        for (int i = 0; i < evenCount; i++) {
+//            System.out.print(userArr[i] + " ");
+//        }
+//        System.out.println();
         //return userArr;
     }
 
@@ -81,13 +84,28 @@ public class Main {
             userArr[u] = InputUser.getInt("Enter number " + (u + 1) + ": ");
 
         }
-        int[] userPairIndex = new int[1];
+//        int[] userPairIndex = new int[1];
+//        for (int i = 0; i < count; i++) {
+//            for (int j = i + 1; j < count; j++) {
+//                if (userArr[i] + userArr[j] == target) {
+//                    userPairIndex[0] = i;
+//                    userPairIndex[1] = j;
+//
+//                }
+//                else if (userArr[i] + userArr[j] != target){
+//                    userPairIndex[0] = 9999;
+//                    userPairIndex[1] = 9999;
+//                }
+//            }
+//        }
+
+        int[] userPairIndex = {-1, -1};
         for (int i = 0; i < count; i++) {
             for (int j = i + 1; j < count; j++) {
                 if (userArr[i] + userArr[j] == target) {
                     userPairIndex[0] = i;
                     userPairIndex[1] = j;
-
+                    return userPairIndex;
                 }
             }
         }
