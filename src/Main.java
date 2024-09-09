@@ -6,7 +6,7 @@ public class Main {
         //No.1
         changeCurrency();
         //No.2
-        getOddNumber();
+        getEvenNumber();
         // No. 3
 
         // No.4
@@ -39,23 +39,28 @@ public class Main {
 
             int selectedIndex = option - 1;
             double result = amount * exchangeRates[selectedIndex];
-            System.out.println(amount + " in " + currencyCodes[selectedIndex] + " is equal to: " + result);
+            System.out.println(amount + " in USD is equal to: " + result + " in " + currencyCodes[selectedIndex]);
         }
 
 
-    public  static void getOddNumber() {
-
-        int count = InputUser.getInt("How many numbers you want to see the odd Number ");
+    public static void getEvenNumber() {
+        int count = InputUser.getInt("How many numbers do you want to enter? ");
         int[] userArr = new int[count];
-        for (int i = 1; i <= count; i++) {
-            int number = InputUser.getInt("Enter number " + i + ": ");
-            if (number % 2 != 0) {
-                userArr[i] = number;
+        int evenCount = 0;
+
+        for (int i = 0; i < count; i++) {
+            int number = InputUser.getInt("Enter number " + (i + 1) + ": ");
+            if (number % 2 == 0) {
+                userArr[evenCount] = number;
+                evenCount++;
             }
         }
-        System.out.print("The odd numbers are: \n" ) ;
-        System.out.print( userArr) ;
 
+        System.out.println("The odd numbers are:");
+        for (int i = 0; i < evenCount; i++) {
+            System.out.print(userArr[i] + " ");
+        }
+        System.out.println();
     }
 
 
