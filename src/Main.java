@@ -10,18 +10,18 @@ public class Main {
         //changeCurrency();
         // No. 3
         int[] userEvenNum =  getEvenNumber();
-        System.out.println(Arrays.toString(userEvenNum));
+        System.out.println("The even number collection consist of: " + Arrays.toString(userEvenNum));
         // No.4
 
         // No.5
 
-        int[] userPairNum = getTargetInt();
-        boolean isPairFound = (userPairNum[0] != -1 && userPairNum[1] != -1);
-        if (isPairFound) {
-            System.out.println("Pair found at index: " + Arrays.toString(userPairNum));
-        } else {
-            System.out.println("No pair index found");
-        }
+//        int[] userPairNum = getTargetInt();
+//        boolean isPairFound = (userPairNum[0] != -1 && userPairNum[1] != -1);
+//        if (isPairFound) {
+//            System.out.println("Pair found at index: " + Arrays.toString(userPairNum));
+//        } else {
+//            System.out.println("No pair index found");
+//        }
 
         // Self Exercise
         //showPriceMenu();
@@ -52,7 +52,7 @@ public class Main {
 
 
     public static int[] getEvenNumber() {
-        int count = InputUser.getInt("How many numbers do you want to store as collection of even number? ");
+        int count = InputUser.getInt("How many numbers do you want to store as collection number? ");
         int[] userArr = new int[count];
         int evenCount = 0;
 
